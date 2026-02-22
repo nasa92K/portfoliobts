@@ -24,6 +24,10 @@ html {
     scroll-behavior: smooth;
 }
 
+section[id] {
+    scroll-margin-top: 80px;
+}
+
 body {
     font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
     color: var(--text-dark);
@@ -67,99 +71,140 @@ body {
     position: relative;
 }
 
-.hero-dark {
-    background: linear-gradient(120deg, #0f172a 0%, #1e3a5f 35%, #0f172a 70%, #000 100%);
+.hero-light {
+    background: linear-gradient(180deg, #e8eef4 0%, #dde5ed 50%, #d1dae5 100%);
     padding-top: 80px;
 }
 
-.hero-pattern {
+.hero-light.hero-with-bg {
+    background-image: url("image/fond%20bleu.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+}
+
+.hero-light.hero-with-bg::before {
+    content: "";
     position: absolute;
     inset: 0;
-    background-image:
-        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-    background-size: 40px 40px;
+    background: rgba(15, 23, 42, 0.42);
     pointer-events: none;
 }
 
-.hero-dark .hero-line1 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #fff;
-    letter-spacing: 0.02em;
+@media (max-width: 991.98px) {
+    .hero-light.hero-with-bg {
+        background-attachment: scroll;
+    }
 }
 
-.hero-title-name {
-    font-size: clamp(2.25rem, 5vw, 3.5rem);
-    font-weight: 700;
+.hero-light.hero-with-bg .container {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-with-bg .hero-line1-light {
+    color: #fff;
+}
+
+.hero-with-bg .hero-title-light {
     color: #fff !important;
-    letter-spacing: -0.02em;
-    line-height: 1.15;
 }
 
-.hero-divider {
-    display: flex;
-    gap: 8px;
-    align-items: center;
+.hero-with-bg .hero-subtitle-light {
+    color: rgba(255, 255, 255, 0.95) !important;
 }
 
-.hero-divider::before,
-.hero-divider::after {
-    content: "";
-    display: block;
-    height: 2px;
-    background: #fff;
-    border-radius: 1px;
-}
-
-.hero-divider::before {
-    width: 32px;
-}
-
-.hero-divider::after {
-    width: 48px;
-}
-
-.hero-subtitle-dark {
-    color: rgba(255, 255, 255, 0.9) !important;
-    font-size: 1.1rem;
-    max-width: 420px;
-}
-
-.cv-link-hero {
-    color: rgba(255, 255, 255, 0.9);
-    text-decoration: none;
-    font-size: 0.95rem;
-    transition: var(--transition);
-}
-
-.cv-link-hero:hover {
-    color: #fff;
+.hero-with-bg .cv-link-hero-light {
+    color: rgba(255, 255, 255, 0.95);
     text-decoration: underline;
 }
 
-.hero-photo-wrapper {
-    max-width: 420px;
-    margin: 0 auto;
-    border-radius: 0.5rem;
-    overflow: hidden;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+.hero-with-bg .cv-link-hero-light:hover {
+    color: #fff;
 }
 
-.hero-photo {
-    width: 100%;
+.hero-text-left {
+    text-align: left;
+}
+
+.hero-line1-light {
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--text-dark);
+    letter-spacing: 0.02em;
+    margin-bottom: 0.25rem;
+}
+
+.hero-title-light {
+    font-size: clamp(2.5rem, 5vw, 3.75rem) !important;
+    font-weight: 700 !important;
+    color: var(--text-dark) !important;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+}
+
+.hero-subtitle-light {
+    color: var(--gray-700) !important;
+    font-size: 1.05rem;
+    max-width: 380px;
+}
+
+.cv-link-hero-light {
+    color: var(--primary);
+    text-decoration: underline;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.cv-link-hero-light:hover {
+    color: var(--primary-hover);
+}
+
+.hero-brand-col {
+    min-height: 280px;
+}
+
+.hero-brand-img {
+    max-width: 100%;
+    width: auto;
+    max-height: 320px;
     height: auto;
-    display: block;
-    object-fit: cover;
+    object-fit: contain;
 }
 
-@media (min-width: 992px) {
-    .hero-photo-col {
-        margin-left: auto;
+.hero-portrait-wrapper {
+    max-width: 320px;
+    min-width: 240px;
+    margin: 0 auto;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.08);
+    aspect-ratio: 1;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.hero-portrait {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+}
+
+@media (max-width: 991.98px) {
+    .hero-text-left {
+        text-align: center;
     }
-    .hero-photo-wrapper {
+    .hero-subtitle-light {
         margin-left: auto;
-        margin-right: 0;
+        margin-right: auto;
+    }
+    .hero-brand-col {
+        order: -1;
+        min-height: 200px;
     }
 }
 
