@@ -2,9 +2,11 @@
 /**
  * Envoi des messages du formulaire de contact via Brevo SMTP (https://app-smtp.brevo.com)
  * Prérequis : composer require phpmailer/phpmailer (dans le dossier portfolio)
- * Clé SMTP : définir la variable d'environnement BREVO_SMTP_KEY sur le serveur.
- * En local (WAMP) : ajouter dans Apache (httpd.conf ou .env) SetEnv BREVO_SMTP_KEY "ta_cle_smtp"
+ * Clé SMTP : config.local.php (local) ou variable d'environnement BREVO_SMTP_KEY (serveur).
  */
+if (file_exists(__DIR__ . '/config.local.php')) {
+    require __DIR__ . '/config.local.php';
+}
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\SMTP;
@@ -31,8 +33,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $mail->isSMTP();
                 $mail->Host       = 'smtp-relay.brevo.com';
                 $mail->SMTPAuth   = true;
-                $mail->Username   = 'anas.fekhar92@gmail.com';
-                $mail->Password   = getenv('BREVO_SMTP_KEY') ?: '';
+                $mail->Username   = (defined('BREVO_SMTP_LOGIN') ? BREVO_SMTP_LOGIN : 'anas.fekhar92@gmail.com');
+                $mail->Password   = (defined('BREVO_SMTP_KEY') ? BREVO_SMTP_KEY : getenv('BREVO_SMTP_KEY')) ?: '';
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
                 $mail->Port       = 587;
                 $mail->CharSet    = 'UTF-8';
