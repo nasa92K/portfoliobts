@@ -116,35 +116,26 @@ body {
     color: rgba(255, 255, 255, 0.95) !important;
 }
 
-.hero-with-bg .cv-link-hero-light {
-    color: rgba(255, 255, 255, 0.95);
-    text-decoration: underline;
-}
-
-.hero-with-bg .cv-link-hero-light:hover {
-    color: #fff;
-}
-
 .hero-text-left {
     text-align: left;
 }
 
 .hero-line1-light {
-    font-family: "Plus Jakarta Sans", sans-serif;
-    font-size: 1.2rem;
+    font-family: "Outfit", sans-serif;
+    font-size: 1.35rem;
     font-weight: 500;
     color: var(--text-dark);
-    letter-spacing: 0.03em;
-    margin-bottom: 0.25rem;
+    letter-spacing: 0.02em;
+    margin-bottom: 0.35rem;
 }
 
 .hero-title-light {
-    font-family: "Plus Jakarta Sans", sans-serif;
-    font-size: clamp(2rem, 4.5vw, 3rem) !important;
+    font-family: "Outfit", sans-serif;
+    font-size: clamp(2.4rem, 5vw, 3.4rem) !important;
     font-weight: 700 !important;
     color: var(--text-dark) !important;
-    letter-spacing: -0.02em;
-    line-height: 1.15;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
 }
 
 .hero-subtitle-light {
@@ -153,20 +144,13 @@ body {
     max-width: 380px;
 }
 
-.cv-link-hero-light {
-    color: var(--primary);
-    text-decoration: underline;
-    font-size: 0.95rem;
-    font-weight: 500;
-    transition: var(--transition);
-}
-
-.cv-link-hero-light:hover {
-    color: var(--primary-hover);
+.hero-row {
+    min-height: 75vh;
 }
 
 .hero-brand-col {
     min-height: 220px;
+    align-self: stretch;
 }
 
 .hero-brand-img {
@@ -178,20 +162,22 @@ body {
 }
 
 .hero-portrait-wrapper {
-    max-width: 320px;
+    max-width: 530px;
     margin: 0 auto;
+    margin-top: auto;
     position: relative;
     background: none;
     border: none;
     box-shadow: none;
     line-height: 0;
+    transform: translateY(8%);
 }
 
 .hero-portrait {
     width: 100%;
     height: auto;
-    max-height: 75vh;
-    max-height: min(75vh, 420px);
+    max-height: 90vh;
+    max-height: min(90vh, 680px);
     object-fit: contain;
     object-position: center bottom;
     display: block;
@@ -216,10 +202,11 @@ body {
         min-height: 180px;
     }
     .hero-portrait-wrapper {
-        max-width: 260px;
+        max-width: 400px;
+        transform: translateY(5%);
     }
     .hero-portrait {
-        max-height: min(60vh, 320px);
+        max-height: min(75vh, 490px);
     }
 }
 
@@ -460,9 +447,11 @@ body {
 .veille-hero {
     background: linear-gradient(160deg, var(--gray-100) 0%, var(--gray-200) 100%);
     padding-top: 100px;
+    font-family: "Poppins", sans-serif;
 }
 
 .veille-main-title {
+    font-family: "Poppins", sans-serif;
     font-size: 2rem;
     font-weight: 700;
     color: var(--text-dark);
@@ -470,22 +459,173 @@ body {
 }
 
 .veille-intro {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
     color: var(--gray-700);
 }
 
 .veille-content {
-    background: #fff;
+    background: linear-gradient(180deg, #e2e8f0 0%, #cbd5e1 50%, #94a3b8 100%);
+    min-height: 60vh;
+    font-family: "Poppins", sans-serif;
 }
 
-.veille-card {
-    border: none;
+.veille-card-glass {
+    border: 1px solid rgba(255, 255, 255, 0.35);
     border-radius: 1rem;
-    transition: var(--transition);
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-.veille-card:hover {
+.veille-card-glass:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.2);
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+.veille-card-img-wrapper {
+    height: 200px;
+    overflow: hidden;
+    border-radius: 1rem 1rem 0 0;
+}
+
+.veille-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 1rem 1rem 0 0;
+    transition: transform 0.4s ease;
+}
+
+.veille-card-glass:hover .veille-card-img {
+    transform: scale(1.06);
+}
+
+.veille-badge {
+    display: inline-block;
+    padding: 0.35rem 0.9rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    border-radius: 2rem;
+    width: fit-content;
+}
+
+.veille-badge-ia {
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    color: #fff;
+}
+
+.veille-badge-robot {
+    background: linear-gradient(135deg, #64748b 0%, #334155 100%);
+    color: #fff;
+}
+
+.veille-card-title {
+    font-family: "Poppins", sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+}
+
+.veille-card-text {
+    font-family: "Poppins", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--gray-700);
+    line-height: 1.6;
+}
+
+.veille-card-glass .card-body {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.veille-theme-section {
+    font-family: "Poppins", sans-serif;
+}
+
+.veille-theme-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.veille-theme-title i {
+    font-size: 1.5rem;
+    opacity: 0.9;
+}
+
+.veille-theme-intro {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--gray-700);
+    margin-bottom: 0;
+}
+
+.veille-theme-card {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.veille-theme-card:hover {
     transform: translateY(-4px);
-    box-shadow: var(--shadow-hover);
+    box-shadow: 0 12px 32px rgba(15, 23, 42, 0.12);
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+.veille-theme-card-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.veille-theme-icon-med {
+    background: linear-gradient(135deg, #0ea5e9 0%, #0369a1 100%);
+}
+
+.veille-theme-icon-log {
+    background: linear-gradient(135deg, #64748b 0%, #475569 100%);
+}
+
+.veille-theme-icon-dev {
+    background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
+}
+
+.veille-theme-card-title {
+    font-family: "Poppins", sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+}
+
+.veille-theme-card-text {
+    font-family: "Poppins", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--gray-700);
+    line-height: 1.6;
+    margin-bottom: 0;
 }
 
 .btn-retour {
